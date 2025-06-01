@@ -1,3 +1,4 @@
+# models.py
 from sqlalchemy import Column, String, Float
 from db import Base
 import uuid
@@ -13,5 +14,4 @@ class Order(Base):
     height = Column(Float, nullable=False)
     length = Column(Float, nullable=False)
     status = Column(String, default="processing")
-    price = Column(Float,nullable=False)
-
+    price = Column(Float, nullable=False)

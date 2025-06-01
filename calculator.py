@@ -1,3 +1,4 @@
+# calculator.py
 def calculate_price(weight: float, width: float, height: float, length: float) -> float:
     base = 100
     volume = width * height * length / 1_000_000  # м³

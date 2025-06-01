@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends
+# tracking.py
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db import SessionLocal
 from crud import get_order_by_id
@@ -16,8 +17,9 @@ def get_db():
 def track_order(order_id: str, db: Session = Depends(get_db)):
     order = get_order_by_id(db, order_id)
     if not order:
-        return {"error": "Order not found"}
+        raise HTTPException(status_code=404, detail="Заказ не найден")
     return {
+        "id": order.id,
         "status": order.status,
         "from": order.dot_a,
         "to": order.dot_b,
