@@ -8,8 +8,17 @@ class OrderCreate(BaseModel):
     height: float
     length: float
 
-
 class OrderResponse(OrderCreate):
     id: str
     status: str
     price: float
+    is_paid: str
+
+
+
+class AirlineResponse(BaseModel):
+    id: str
+    name: str
+
+    class Config:
+        orm_mode = True

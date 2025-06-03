@@ -1,5 +1,5 @@
-# models.py
 from sqlalchemy import Column, String, Float
+from sqlalchemy.dialects.postgresql import UUID
 from db import Base
 import uuid
 
@@ -15,3 +15,13 @@ class Order(Base):
     length = Column(Float, nullable=False)
     status = Column(String, default="processing")
     price = Column(Float, nullable=False)
+    is_paid = Column(String, default="no")
+
+
+
+class Airline(Base):
+    __tablename__ = "airlines"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    name = Column(String, nullable=False, unique=True)
+is_paid = Column(String, default="no")

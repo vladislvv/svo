@@ -1,4 +1,3 @@
-# tracking.py
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db import SessionLocal
@@ -21,7 +20,9 @@ def track_order(order_id: str, db: Session = Depends(get_db)):
     return {
         "id": order.id,
         "status": order.status,
+        "is_paid": order.is_paid,
         "from": order.dot_a,
         "to": order.dot_b,
         "price": order.price
     }
+
