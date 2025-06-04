@@ -1,5 +1,4 @@
-from sqlalchemy import Column, String, Float
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import Column, String, Float, Boolean
 from db import Base
 import uuid
 
@@ -16,6 +15,12 @@ class Order(Base):
     status = Column(String, default="processing")
     price = Column(Float, nullable=False)
     is_paid = Column(String, default="no")
+    cooling = Column(Boolean, default=False)
+    insurance = Column(Boolean, default=False)
+    loaders = Column(Boolean, default=False)
+    passenger_space = Column(Boolean, default=False)
+    escort = Column(Boolean, default=False)
+    airline = Column(String, nullable=True)
 
 
 

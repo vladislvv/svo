@@ -7,12 +7,19 @@ class OrderCreate(BaseModel):
     width: float
     height: float
     length: float
+    cooling: bool = False
+    insurance: bool = False
+    loaders: bool = False
+    passenger_space: bool = False
+    escort: bool = False
+    airline: str = None
 
 class OrderResponse(OrderCreate):
     id: str
     status: str
     price: float
     is_paid: str
+
 
 
 

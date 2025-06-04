@@ -12,7 +12,7 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/pay/{order_id}")
+@router.post("/pay")
 def pay(order_id: str, db: Session = Depends(get_db)):
     result = pay_for_order(db, order_id)
     if result is None:
